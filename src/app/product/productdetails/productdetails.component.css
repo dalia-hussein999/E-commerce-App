@@ -1,0 +1,20 @@
+.product-container{
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.images , .product-details{
+    width: 49%;
+}
+.sub-img{
+    display: inline-block;
+    width: 30%;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 6px;
+}
+
+.fa-star{
+    color: green;
+}

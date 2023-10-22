@@ -1,0 +1,24 @@
+<div class="product-container">
+    <div class="images">
+        <figure class="main-img">
+            <img [src]="details.images[0]">
+        </figure>
+        <img [src]="details.images[1]" class="sub-img">
+        <img [src]="details.images[2]" class="sub-img">
+        <img [src]="details.images[3]" class="sub-img">
+        
+        
+    </div>
+    <div class="product-details">
+        <h2>{{details.title}}</h2>
+        <p>{{details.description}}</p>
+        <h3>{{details.price | currency : 'EGP'}} </h3>
+        <div class="icons">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+    </div>
+</div>

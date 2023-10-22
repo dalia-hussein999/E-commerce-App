@@ -1,0 +1,30 @@
+<p class="text">welcome to our shopping website start browsing...</p>
+<hr>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let product of products ">
+      <div class="card">
+        <div *ngIf="product.stock ===0 ;then thenBlock ;else elseBlock"></div>
+        <ng-template #thenBlock>
+          <span class="badge rounded-pill text-bg-danger stock">Out of stock</span>
+        </ng-template>
+        <ng-template #elseBlock>
+          <span class="badge rounded-pill text-bg-success stock">In stock</span>
+        </ng-template>
+        
+        <img [src]="product.images[0]" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}<span class="badge bg-primary ms-3">{{product.price | currency : 'EGP'}}</span></h5>
+          <p class="card-text product-desc">{{product.description}} </p>
+          <div class="icons">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>                       
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <button type="button" class="btn btn-primary " style="width: 200px;"  (click)="addProduct(product.id)">Add To Card</button>
+          <button type="button" class="btn btn-primary ms-3"><a [routerLink]="['/productdetails' ,product.id]" class="text-white" style="text-decoration: none;">View Details</a></button>
+        </div>
+      </div>
+    </div>
+</div>

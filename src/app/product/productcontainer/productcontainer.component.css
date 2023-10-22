@@ -1,0 +1,39 @@
+.text{
+    padding: 40px 0;
+    color: blue;
+    font-size: 18px;
+    font-weight: bold;
+}
+.card{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    
+}
+.card-title{
+    font-size: 16px;
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    object-fit:contain;
+    box-shadow: 0 0 0.7px rgb(106, 106, 106);
+}
+.row-cols-md-2>* {
+width: 30%;
+}
+.product-desc{
+    padding: 20px;
+    height: 110px;
+}
+.fa-star{
+    color: green;
+}
+.stock{
+    width: 30%;
+    position: absolute;
+    margin: 10px 0 0 20px;
+}
+.icons{
+    padding: 10px 0;
+}

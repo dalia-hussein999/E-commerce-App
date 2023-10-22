@@ -1,0 +1,75 @@
+<div class="container form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" formControlName="name">
+  
+        <div id="nameHelp" class="form-text text-danger"
+          *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid">
+          <span *ngIf="registerForm.controls['name'].errors?.['required']">This field is required</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" formControlName="email">
+        <div id="emailHelp" class="form-text text-danger"
+          *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid">
+          <span *ngIf="registerForm.controls['email'].errors?.['required']">This field is required</span>
+          <span *ngIf="registerForm.controls['email'].errors?.['minlength']">Min.length is 3 characters</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="userNameInput" class="form-label">User Name</label>
+        <input type="text" class="form-control" id="userNameInput" aria-describedby="nameHelp" formControlName="userName">
+  
+        <div id="userNameHelp" class="form-text text-danger"
+          *ngIf="registerForm.controls['userName'].touched && registerForm.controls['userName'].invalid">
+          <span *ngIf="registerForm.controls['userName'].errors?.['required']">This field is required</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" formControlName="password">
+        <div id="passwordeHelp" class="form-text text-danger"
+          *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">
+          <span *ngIf="registerForm.controls['password'].errors?.['required']">This field is required</span>
+          <span *ngIf="registerForm.controls['password'].errors?.['pattern']">Invalid Password</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPasswordInput" formControlName="confirmPassword">
+        <div id="confirmPasswordHelp" class="form-text text-danger"
+          *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].invalid">
+          <span *ngIf="registerForm.controls['confirmPassword'].errors?.['required']">This field is required</span>
+          <span *ngIf="registerForm.controls['confirmPassword'].errors?.['notmatch']">Passwords do not match</span>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="address">
+        <div *ngFor="let address of address().controls; let addIndex=index">
+          <div [formGroupName]="addIndex" style="border: 1px solid blue; padding: 10px; width: 600px; margin: 5px;">
+            {{addIndex}}
+            <input type="text" formControlName="street" placeholder="Street" class="form-control"
+              style="margin-bottom: 10px;" />
+  
+            <input type="text" formControlName="city" placeholder="City" class="form-control"
+              style="margin-bottom: 10px;" />
+            <input type="text" formControlName="country" placeholder="Country" class="form-control"
+              style="margin-bottom: 10px;" />
+  
+            <button class="btn btn-primary" (click)="removeAddress(addIndex)">Remove</button>
+  
+  
+          </div>
+  
+        </div>
+      </div>
+      <button class="btn btn-primary address-btn" type="button" (click)="addAddress()">Add Address</button>
+  
+    </form>
+  
+  </div>
